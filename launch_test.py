@@ -7,8 +7,8 @@ from bubble_sort import bubble_sort
 from kolmogorov_smirnoff_test import get_params, get_ks_statistic
 from scipy.stats import rayleigh
 
-n_samples = 10000
-n_elements = 1000
+n_samples = 200
+n_elements = 3000
 
 def generate_pass_count(_):
     random_list = create_random_list(n_elements, 0, 1000)
