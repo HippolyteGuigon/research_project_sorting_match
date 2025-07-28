@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from create_random_list import create_random_list
 from bubble_sort import bubble_sort
-from kolmogorov_smirnoff_test import get_params, get_ks_statistic
+from statistical_test import get_params, get_ks_statistic
 from scipy.stats import rayleigh
 
-n_samples = 200
+n_samples = 2000
 n_elements = 3000
 
 def generate_pass_count(_):
@@ -23,10 +23,9 @@ def main():
     plot_comparison(x_n)
     params = get_params(x_n)
     stat, p_value = get_ks_statistic(x_n, params)
-
     print(f"KS stat = {stat:.4f}, p-value = {p_value:.4f}")
 
-def plot_comparison(x_n, filename="rayleigh_vs_data.png"):
+def plot_comparison(x_n, filename="results/rayleigh_vs_data.png"):
     # Histogramme des données
     plt.figure(figsize=(10, 5))
 

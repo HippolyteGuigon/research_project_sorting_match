@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.stats import rayleigh, kstest
+from statistical_test import get_params, get_ks_statistic
 import matplotlib.pyplot as plt
 import math
 import random
@@ -18,7 +19,7 @@ def run_experiment(n_samples=100000, n_days=365):
     T_n = [c / math.sqrt(n_days) for c in collisions]
     return T_n
 
-def plot_rayleigh_comparison(T_n, filename="birthday_vs_rayleigh.png"):
+def plot_rayleigh_comparison(T_n, filename="results/birthday_vs_rayleigh.png"):
     plt.figure(figsize=(10, 5))
     
     # Subplot gauche : Rayleigh fit
@@ -45,11 +46,11 @@ def plot_rayleigh_comparison(T_n, filename="birthday_vs_rayleigh.png"):
     plt.savefig(filename)
     print(f"📊 Graphique sauvegardé dans : {filename}")
 
-def test_ks(T_n):
+def test_rayleigh(T_n):
     stat, p_value = kstest(T_n, 'rayleigh', args=rayleigh.fit(T_n))
     print(f"KS stat: {stat:.4f}, p-value: {p_value:.4f}")
 
 if __name__ == "__main__":
     T_n = run_experiment(n_samples=1000000, n_days=365)
     plot_rayleigh_comparison(T_n)
-    test_ks(T_n)
+    test_rayleigh(T_n)
