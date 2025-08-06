@@ -1,5 +1,5 @@
-import random
+import numpy as np
 from typing import List
 
-def create_random_list(n:int,min_value:int,max_value:int)->List[int]:
-    return [random.randint(min_value,max_value) for _ in range(n)]
+def create_random_list(n: int) -> List[int]:
+    return list(np.random.permutation(n) + 1)  # si tu veux [1, ..., n] au lieu de [0, ..., n-1]
