@@ -10,7 +10,7 @@ from tqdm import tqdm
 import pickle
 import os
 
-n_samples = 100
+n_samples = 500
 n_elements = 20000
 
 def generate_pass_count(_):
@@ -71,5 +71,5 @@ def plot_comparison(x_n, filename=None, p_value=None):
     print(f"📊 Graphique sauvegardé dans : {filename}")
 
 if __name__ == "__main__":
-    for i in range(100):
+    while True:
         main()
