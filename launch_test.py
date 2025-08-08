@@ -10,8 +10,8 @@ from tqdm import tqdm
 import pickle
 import os
 
-n_samples = 1000
-n_elements = 20000
+n_samples = 50
+n_elements = 25000
 
 def generate_pass_count(_):
     random_list = create_random_list(n_elements)
