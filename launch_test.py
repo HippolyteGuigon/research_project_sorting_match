@@ -10,7 +10,7 @@ from tqdm import tqdm
 import pickle
 import os
 
-n_samples = 500
+n_samples = 1000
 n_elements = 20000
 
 def generate_pass_count(_):
