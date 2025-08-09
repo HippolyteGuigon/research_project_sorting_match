@@ -10,7 +10,7 @@ from tqdm import tqdm
 import pickle
 import os
 
-n_samples = 50
+n_samples = 10
 n_elements = 25000
 
 def generate_pass_count(_):
@@ -39,7 +39,8 @@ def main():
         pickle.dump(hist_pass, f)
 
     stat, p_value = get_ks_statistic(x_n)
-    plot_comparison(x_n, p_value=p_value)
+    if len(x_n)%500==0:
+        plot_comparison(x_n, p_value=p_value)
     
     print(f"KS stat = {stat:.4f}, p-value = {p_value:.4f}")
 
